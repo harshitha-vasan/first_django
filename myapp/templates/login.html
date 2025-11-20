@@ -1,0 +1,33 @@
+{% extends 'main.html' %} {% block update %}
+<section id="contact" class="contact section light-background">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-lg-7 m-auto">
+                <div class="form-wrapper">
+                    <div class="form-header">
+                        <h3>Login Here</h3>
+                    </div>
+
+                    <form action="/" method="POST" class="">
+                        {% csrf_token %}
+
+
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" name="email" required="" />
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" required="" />
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Submit</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock update %}

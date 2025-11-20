@@ -1,0 +1,22 @@
+<div style="margin-top: 5%">
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Comments</th>
+        </tr>
+        {% for data in datas %}
+        <tr>
+            <td>{{data.name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.phone}}</td>
+            <td>{{data.comment}}</td>
+            <td><a href="/forms/update/{{ data.id }}" class="btn btn-outline-warning">Update</a></a></td>
+            <!-- <td><a href="/delete/{{ data.id }}" class="btn btn-outline-warning">Delete</a></a></td> -->
+        </tr>
+        {% endfor %}
+    </table>
+</div>

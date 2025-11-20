@@ -1,0 +1,14 @@
+{% extends 'main.html' %} 
+{% block update %}
+
+<section>
+    <div>
+        <form action="django-forms"  method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+
+{% endblock update %}

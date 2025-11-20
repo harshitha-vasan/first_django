@@ -1,0 +1,22 @@
+<div style="margin: 3%">
+    <form action="/forms/" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label" >Enter your Full Name</label>
+            <input type="text" class="form-control" name="name" value="{{data.name}}" id="name">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label" >Enter your Email address</label>
+            <input type="email" class="form-control" name="email"  value="{{data.email}}" id="email">
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label" >Enter your phone number</label>
+            <input type="tel" class="form-control" name="phone" value="{{data.phone}}" id="phone">
+        </div>
+        <div class="mb-3">
+            <label for="comment" class="form-label" >Add your Comments</label>
+            <input type="text" class="form-control" name="comment" value="{{data.comment}}" id="comment">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
