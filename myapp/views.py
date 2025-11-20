@@ -3,6 +3,7 @@ from .models import contactDetails, registerDetails
 from .forms import productDetailsForm
 from functools import wraps
 from django.db.models import Q
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.pip insta
 
@@ -15,6 +16,7 @@ def login_required(view_func):
         return view_func(request, *args, **kwargs)
     return wrapped_func
 
+@csrf_exempt
 def register(request):
     if request.method=='POST':
         user_name=request.POST['uname']
@@ -26,6 +28,7 @@ def register(request):
         return redirect('login')
     return render(request, 'register.html')
 
+@csrf_exempt
 def login(request):
     if request.method=='POST':
         email=request.POST['email']
@@ -50,6 +53,7 @@ def logout(request):
 def first(request):
     return HttpResponse('This is my first Django project')
 
+@csrf_exempt
 @login_required
 def index(request):
     if request.method == 'POST':
@@ -83,6 +87,7 @@ def tables(request):
     )
     return render(request,'tables.html', {'datas': data, 'search_query': search_query} )
  
+@csrf_exempt
 @login_required
 def delete_multiple(request):
     if request.method == 'POST':
@@ -91,6 +96,7 @@ def delete_multiple(request):
         
     return redirect('tables')
 
+@csrf_exempt
 @login_required
 def update(request, id):
     data=contactDetails.objects.get(id=id)
